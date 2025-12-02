@@ -1,5 +1,3 @@
-// src/pages/ProdutoDetail.jsx
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
@@ -9,11 +7,10 @@ import {
 } from '@mui/material';
 
 const ProdutoDetail = () => {
-    // Hooks para pegar o ID da URL e para navegar
+
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // Estados para guardar os dados do produto e controlar o carregamento
     const [produto, setProduto] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -34,7 +31,19 @@ const ProdutoDetail = () => {
         fetchProduto();
     }, [id]); // Roda o efeito sempre que o 'id' na URL mudar
 
-    // Exibe um spinner de carregamento enquanto busca os dados
+    const translateStatus = (statusValue) => {
+        if (typeof statusValue === 'string') {
+            const lowerCaseStatus = statusValue.toLowerCase();
+            if (lowerCaseStatus === 'active') return 'Ativo';
+            if (lowerCaseStatus === 'inactive') return 'Inativo';
+        }
+        if (typeof statusValue === 'boolean') {
+            return statusValue ? 'Ativo' : 'Inativo';
+        }
+        return statusValue;
+    };
+
+    // Exibe um carregamento enquanto busca os dados
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
@@ -43,7 +52,7 @@ const ProdutoDetail = () => {
         );
     }
 
-    // Exibe uma mensagem se o produto não for encontrado após o carregamento
+    // Exibe uma mensagem se o produto não for encontrado depois do carregamento
     if (!produto) {
         return (
             <Paper elevation={3} sx={{ margin: '50px auto', padding: 4, maxWidth: '700px', textAlign: 'center' }}>
@@ -78,7 +87,7 @@ const ProdutoDetail = () => {
                 </ListItem>
                 <Divider />
                 <ListItem>
-                    <ListItemText primary="Status" secondary={produto.status} />
+                    <ListItemText primary="Status" secondary={translateStatus(produto.status)} />
                 </ListItem>
                 <Divider />
                 <ListItem>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Instância para chamadas ao Django
+// Instancia pra chamada do Django
 const apiDjango = axios.create({
   baseURL: 'http://127.0.0.1:8000', // Django
 });

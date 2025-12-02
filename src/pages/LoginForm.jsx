@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../services/auth';
 import apiDjango from '../services/api';
 
-// Componentes MUI
+
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 
 const LoginForm = () => {
@@ -17,7 +17,7 @@ const LoginForm = () => {
     setError('');
 
     try {
-      const response = await login(username, password); // Capture a resposta
+      const response = await login(username, password);
       
       console.log('Login Bem-Sucedido! Resposta do servidor:', response); // <--- DEBUG 1
       

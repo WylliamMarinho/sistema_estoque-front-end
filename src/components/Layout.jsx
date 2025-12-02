@@ -11,6 +11,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import HomeIcon from '@mui/icons-material/Home';
 import BusinessIcon from '@mui/icons-material/Business';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CategoryIcon from '@mui/icons-material/Category'; 
 
 const drawerWidth = 240;
 
@@ -18,6 +19,7 @@ const menuItems = [
     { text: 'Início', icon: <HomeIcon />, path: '/' },
     { text: 'Produtos', icon: <InventoryIcon />, path: '/produtos' },
     { text: 'Empresas', icon: <BusinessIcon />, path: '/empresas' },
+    { text: 'Tipos de Produto', icon: <CategoryIcon />, path: '/product-types' },
 ];
 
 const Layout = () => {

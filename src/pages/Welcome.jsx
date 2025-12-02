@@ -1,5 +1,3 @@
-// src/pages/Welcome.jsx
-
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
