@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
-// Imports dos componentes
 import Layout from './components/Layout';
 import Welcome from './pages/Welcome'; 
 import ProdutoList from './pages/ProdutoList';
@@ -14,6 +12,8 @@ import EmpresaForm from './pages/EmpresaForm'; // Novo
 import ProductTypeList from './pages/ProductTypeList';
 import ProductTypeForm from './pages/ProductTypeForm';
 import ProductTypeDetail from './pages/ProductTypeDetail';
+import EstoqueEntradaList from './pages/EstoqueEntradaList';
+import EstoqueEntradaForm from './pages/EstoqueEntradaForm';
 
 // Função pra verificar se o usuário tá logado
 const isAuthenticated = () => !!localStorage.getItem('accessToken');
@@ -54,6 +54,12 @@ function App() {
           <Route path="/product-types/novo" element={<ProductTypeForm />} />
           <Route path="/product-types/editar/:id" element={<ProductTypeForm />} />
           <Route path="/product-types/view/:id" element={<ProductTypeDetail />} /> 
+
+                      {/* 🚨 NOVAS ROTAS DE ENTRADA DE ESTOQUE */}
+            <Route path="/entradas-estoque" element={<EstoqueEntradaList />} />
+            <Route path="/entradas-estoque/novo" element={<EstoqueEntradaForm />} />
+            <Route path="/entradas-estoque/editar/:id" element={<EstoqueEntradaForm />} />
+            <Route path="/entradas-estoque/view/:id" element={<EstoqueEntradaList />} />
         </Route>
         
         {/* Rota de fallback*/}

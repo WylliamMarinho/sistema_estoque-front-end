@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import {
@@ -20,6 +18,7 @@ const menuItems = [
     { text: 'Produtos', icon: <InventoryIcon />, path: '/produtos' },
     { text: 'Empresas', icon: <BusinessIcon />, path: '/empresas' },
     { text: 'Tipos de Produto', icon: <CategoryIcon />, path: '/product-types' },
+    { text: 'Entradas de Estoque', icon: <InventoryIcon />, path: '/entradas-estoque' }, 
 ];
 
 const Layout = () => {
